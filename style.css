@@ -1,0 +1,335 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* stop horizontal overflow */
+  background-color: #0b0b0b;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Sometimes background images or flex layouts cause 100vw overflow */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optional: if using ::after overlays */
+[class*="::after"], [class*="::before"] {
+  max-width: 100%;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;      /* hides overflow */
+  width: 100%;           /* full width only */
+  margin: 0 auto;
+}
+
+.hero-section img.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  object-position: center;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  /* background: rgba(0, 0, 0, 0.7); */
+}
+
+.hero-section h1 {
+  position: relative;
+  z-index: 3;
+  font-size: 5rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* ✅ Tablet screens (<=1024px) */
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+
+  .hero-section img.hero-img {
+    object-position: top;
+    width: 100%;   /* remove 90% and left:5% — causes overflow */
+    left: 0;
+  }
+
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* ✅ Mobile screens (<=768px) */
+@media (max-width: 768px) {
+  .hero-section {
+    display: block;
+    min-height: auto;
+    height: auto;
+    padding: 40px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-section img.hero-img {
+    position: relative;
+    width: 85%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+
+  .hero-section::after {
+    /* background: rgba(0, 0, 0, 0.5); */
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 15px;
+  }
+}
+
+/* ✅ Small devices (<=672px) */
+@media (max-width: 672px) {
+  .hero-section img.hero-img {
+    width: 80%;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* ✅ Extra small screens (<=480px) */
+@media (max-width: 480px) {
+  .hero-section img.hero-img {
+    width: 75%;
+  }
+
+  .hero-section h1 {
+    font-size: 1.6rem;
+  }
+}
+
+
+
+input.form-control {
+  border: none;                 /* saare borders hata de */
+  border-bottom: 2px solid white; /* sirf neeche white line */
+  background: transparent;       /* transparent background */
+  color: white;                 
+  border-radius: 0;              
+}
+
+input.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7); 
+}
+
+input.form-control:focus {
+  outline: none;                  
+  box-shadow: none;               
+  border-bottom-color: #ffcccc;   
+}
+
+
+
+    /* Contact Section */
+    
+    .contact-section {
+      padding: 60px 0;
+      /* background: #111; */
+    }
+    .contact-section h2 {
+      /* color: #fff; */
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .contact-section h2 span {
+      color: #e63946;
+    }
+    .form-control, textarea {
+      /* background: transparent; */
+      /* border: 1px solid #444; */
+      color: #fff;
+      border-radius: 0;
+    }
+    .form-control:focus {
+      border-color: #e63946;
+      box-shadow: none;
+    }
+    .btn-custom {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .btn-custom:hover {
+      background: #c62828;
+    }
+
+    /* Contact Info */
+    .contact-info p, .contact-info a {
+      color: #ccc;
+      margin-bottom: 5px;
+      text-decoration: none;
+    }
+    .social-icons a {
+      color: #fff;
+      margin-right: 15px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+    .social-icons a:hover {
+      color: #e63946;
+    }
+
+    /* Footer */
+    footer {
+      background: #0a0a0a;
+      padding: 40px 0;
+    }
+    footer h5 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    footer p, footer a {
+      color: #ccc;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #e63946;
+    }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    /* For input fields */
+input.form-control {
+  border: none;
+  border-bottom: 2px solid white; /* sirf neeche line */
+  background: transparent;
+  color: white;
+  border-radius: 0;
+}
+
+/* For textarea fields */
+textarea.form-control {
+  border: none;
+  border-bottom: 2px solid white; /* sirf neeche line */
+  background: transparent;
+  color: white;
+  border-radius: 0;
+  resize: none; /* optional: user resize na kare */
+}
+
+/* Placeholder color */
+input.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Focus effect */
+input.form-control:focus,
+textarea.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid #ffcccc; /* focus color */
+}
+.location-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #1b1e1f;
+  padding: 60px 0;
+  color: #fff;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.location-box {
+  flex: 1;
+  padding: 30px 20px;
+  position: relative;
+}
+
+.location-box:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 0;
+  width: 0;
+  height: 70%;
+  border-right: 2px dashed #ff2b2b;
+}
+
+.location-box i {
+  font-size: 2.5rem;
+  color: #ff2b2b;
+  margin-bottom: 15px;
+}
+
+.location-box h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.location-box p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e1e1e1;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 992px) {
+  .location-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .location-box {
+    padding: 25px 0;
+  }
+
+  .location-box:not(:last-child)::after {
+    border-right: none;
+    border-bottom: 2px dashed #ff2b2b;
+    width: 70%;
+    height: 0;
+    top: auto;
+    bottom: 0;
+    left: 15%;
+  }
+}
